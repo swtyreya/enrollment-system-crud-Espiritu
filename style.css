@@ -1,0 +1,83 @@
+/* Reset & basic styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5; /* light grey bg */
+    color: #333;
+}
+
+/* Navbar */
+nav {
+    background: #6b5e4e; /* brownish */
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+nav ul li a:hover {
+    background: #c0b8ac; /* lighter brown hover */
+}
+
+nav ul li a.active {
+    background: #8b7d6b; /* darker brown active */
+}
+
+/* Section spacing */
+.section {
+    padding: 20px;
+}
+
+/* Forms */
+form {
+    margin-bottom: 15px;
+}
+
+form input, form select, form button {
+    margin: 5px 3px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    background: #6b5e4e;
+    color: #fff;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #8b7d6b;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+    background: #fff;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background: #e0dcd7; /* light brownish header */
+}

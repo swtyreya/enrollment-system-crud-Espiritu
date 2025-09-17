@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Student Enrollment System - Students</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <nav>
+    <ul>
+        <li><a href="#" onclick="showSection('studentsSection', this)">Students</a></li>
+        <li><a href="#" onclick="showSection('programsSection', this)">Programs</a></li>
+        <li><a href="#" onclick="showSection('yearsSection', this)">Years</a></li>
+        <li><a href="#" onclick="showSection('semestersSection', this)">Semesters</a></li>
+        <li><a href="#" onclick="showSection('subjectsSection', this)">Subjects</a></li>
+        <li><a href="#" class="active" onclick="showSection('enrollmentsSection', this)">Enrollments</a></li>
+    </ul>
+</nav>
+
+
+    <div id="studentsSection" class="section" style="display:none;">
+    <h1>Student Management</h1>
+
+    <form id="studentForm">
+        <input type="hidden" id="studentId" />
+        <input type="text" id="studentFName" placeholder="Student First Name" required />
+        <input type="text" id="studentMName" placeholder="Student Middle Name" required />
+        <input type="text" id="studentLName" placeholder="Student Last Name" required />
+        
+        <select id="studentProgram" required>
+            <option value="">Select Program</option>
+       
+        </select>
+        
+        <input type="number" id="studentAllowance" placeholder="Allowance" min="0" value="0" />
+        
+        <button type="submit">Add Student</button>
+        <button type="button" id="cancelEdit" style="display:none;">Cancel</button>
+    </form>
+
+    <table border="1" id="studentsTable">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>Program</th>
+                <th>Allowance</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+<div id="programsSection" class="section" style="display:none;">
+<h1>Program Management</h1>
+
+<form id="programForm">
+    <input type="hidden" id="programId" />
+    <input type="text" id="programName" placeholder="Program Name" required />
+
+    <select id="programInstitute" required>
+        <option value="">Select Institute</option>
+        <!-- Institutes will load here -->
+    </select>
+
+    <button type="submit">Add Program</button>
+    <button type="button" id="cancelProgramEdit" style="display:none;">Cancel</button>
+</form>
+
+<table border="1" id="programsTable">
+    <thead>
+        <tr>
+            <th>Program Name</th>
+            <th>Institute</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+</div>
+
+
+<div id="yearsSection" class="section" style="display:none;">
+<h1>Year Management</h1>
+
+<form id="yearForm">
+    <input type="hidden" id="yearId" />
+    <input type="number" id="yearFrom" placeholder="Year From" required />
+    <input type="number" id="yearTo" placeholder="Year To" required />
+    <button type="submit">Add Year</button>
+    <button type="button" id="cancelYearEdit" style="display:none;">Cancel</button>
+</form>
+
+<table border="1" id="yearsTable">
+    <thead>
+        <tr>
+            <th>Year</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+</div>
+
+
+<div id="semestersSection" class="section" style="display:none;">
+<h1>Semester Management</h1>
+
+<form id="semesterForm">
+    <input type="hidden" id="semId" />
+    <input type="text" id="semName" placeholder="Semester Name" required />
+
+    <select id="semYear" required>
+        <option value="">Select Year</option>
+    </select>
+
+    <button type="submit">Add Semester</button>
+    <button type="button" id="cancelSemEdit" style="display:none;">Cancel</button>
+</form>
+
+<table border="1" id="semestersTable">
+    <thead>
+        <tr>
+            <th>Semester</th>
+            <th>School Year</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+</div>
+
+
+<div id="subjectsSection" class="section" style="display:none;">
+<h1>Subject Management</h1>
+
+<form id="subjectForm">
+    <input type="hidden" id="subId" />
+    <input type="text" id="subCode" placeholder="Subject Code" required />
+    <input type="text" id="subName" placeholder="Subject Name" required />
+    <input type="number" id="subUnits" placeholder="Units" min="1" required />
+
+    <select id="subSemester" required>
+        <option value="">Select Semester</option>
+        <!-- Will be loaded from API -->
+    </select>
+
+    <button type="submit">Add Subject</button>
+    <button type="button" id="cancelSubEdit" style="display:none;">Cancel</button>
+</form>
+
+<table border="1" id="subjectsTable">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Units</th>
+            <th>Semester</th>
+            <th>Year</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+</div>
+
+<div id="enrollmentsSection" class="section">
+    <h1>Enrollment Management</h1>
+
+    <form id="enrollmentForm">
+        <input type="hidden" id="loadId" />
+        
+        <select id="enrollmentStudent" required>
+            <option value="">Select Student</option>
+            <!-- Students will load here -->
+        </select>
+
+        <select id="enrollmentSubject" required>
+            <option value="">Select Subject</option>
+            <!-- Subjects will load here -->
+        </select>
+
+        <button type="submit">Enroll</button>
+        <button type="button" id="cancelEnrollmentEdit" style="display:none;">Cancel</button>
+    </form>
+
+    <table border="1" id="enrollmentsTable">
+    <thead>
+        <tr>
+           
+            <th>Student</th>
+            <th>Subject</th>
+            <th>Code</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+</div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
